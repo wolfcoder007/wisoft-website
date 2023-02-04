@@ -1,0 +1,16 @@
+{
+    "name": "GeneralSettings",
+    "alias": "generalsettings",
+    "version": "1.0.0",
+	"description": "",
+    "keywords": [],
+    "priority": 1,
+    "providers": [
+        "Modules\\GeneralSettings\\Providers\\GeneralSettingsServiceProvider",
+        "Modules\\GeneralSettings\\Providers\\EventServiceProvider",
+        "Modules\\GeneralSettings\\Providers\\RouteServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

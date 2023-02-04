@@ -1,0 +1,21 @@
+{
+    "name": "Blog",
+    "alias": "blog",
+    "version": "1.0.0",
+	"description": "A simple blog module with categories and tags",
+    "keywords": [],
+    "priority": 1,
+    "providers": [
+        "Modules\\Blog\\Providers\\BlogServiceProvider",
+        "Modules\\Blog\\Providers\\EventServiceProvider",
+        "Modules\\Blog\\Providers\\RouteServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "widgets": [
+        "Modules\\Blog\\Widgets\\PostsWidget",
+        "Modules\\Blog\\Widgets\\CategoriesWidget",
+        "Modules\\Blog\\Widgets\\LatestPostsWidget"
+    ],
+    "requires": []
+}

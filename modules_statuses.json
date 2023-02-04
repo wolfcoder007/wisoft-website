@@ -1,0 +1,23 @@
+{
+    "Core": true,
+    "Dashboard": true,
+    "Media": true,
+    "Menu": true,
+    "Page": true,
+    "Setting": true,
+    "Tag": true,
+    "Translation": true,
+    "User": true,
+    "Workshop": true,
+    "Blog": true,
+    "CustomHTTP": true,
+    "Block": true,
+    "Slider": true,
+    "Contact": true,
+    "Test": true,
+    "Blug": true,
+    "Testimonials": true,
+    "GeneralSettings": true,
+    "Generalsettings": true,
+    "CaseStudies": true
+}

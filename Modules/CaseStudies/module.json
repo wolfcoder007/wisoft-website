@@ -1,0 +1,16 @@
+{
+    "name": "CaseStudies",
+    "alias": "casestudies",
+    "version": "1.0.0",
+	"description": "",
+    "keywords": [],
+    "priority": 1,
+    "providers": [
+        "Modules\\CaseStudies\\Providers\\CaseStudiesServiceProvider",
+        "Modules\\CaseStudies\\Providers\\EventServiceProvider",
+        "Modules\\CaseStudies\\Providers\\RouteServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

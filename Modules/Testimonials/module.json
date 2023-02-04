@@ -1,0 +1,16 @@
+{
+    "name": "Testimonials",
+    "alias": "testimonials",
+    "version": "1.0.0",
+	"description": "",
+    "keywords": [],
+    "priority": 1,
+    "providers": [
+        "Modules\\Testimonials\\Providers\\TestimonialsServiceProvider",
+        "Modules\\Testimonials\\Providers\\EventServiceProvider",
+        "Modules\\Testimonials\\Providers\\RouteServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

@@ -1,0 +1,13 @@
+{
+    "name": "CustomHTTP",
+    "alias": "customhttp",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\CustomHTTP\\Providers\\CustomHTTPServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}
