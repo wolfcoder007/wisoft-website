@@ -1,0 +1,16 @@
+{
+    "name": "Smtp",
+    "alias": "smtp",
+    "version": "1.0.0",
+	"description": "",
+    "keywords": [],
+    "priority": 1,
+    "providers": [
+        "Modules\\Smtp\\Providers\\SmtpServiceProvider",
+        "Modules\\Smtp\\Providers\\EventServiceProvider",
+        "Modules\\Smtp\\Providers\\RouteServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

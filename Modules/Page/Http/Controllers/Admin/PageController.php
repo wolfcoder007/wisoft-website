@@ -24,7 +24,9 @@ class PageController extends AdminBaseController
 
     public function index()
     {
-        return view('page::admin.index');
+        $pages = $this->page->all();
+
+        return view('page::admin.index', compact('pages'));
     }
 
     /**
@@ -34,7 +36,7 @@ class PageController extends AdminBaseController
      */
     public function create()
     {
-        return view('page::admin.create');
+        return view('page::admin.create')->with(['target' => '_blank']);
     }
 
     /**

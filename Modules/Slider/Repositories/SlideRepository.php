@@ -6,5 +6,5 @@ use Modules\Core\Repositories\BaseRepository;
 
 interface SlideRepository extends BaseRepository
 {
-    public function allSlideData();
+    //public function allSlideData();
 }

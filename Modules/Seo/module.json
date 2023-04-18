@@ -1,0 +1,16 @@
+{
+    "name": "Seo",
+    "alias": "seo",
+    "version": "1.0.0",
+	"description": "",
+    "keywords": [],
+    "priority": 1,
+    "providers": [
+        "Modules\\Seo\\Providers\\SeoServiceProvider",
+        "Modules\\Seo\\Providers\\EventServiceProvider",
+        "Modules\\Seo\\Providers\\RouteServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

@@ -28,14 +28,13 @@ class CaseStudiesController extends Controller
 
     public function index()
     {
-       // var_dump($this->casestudies->allApiData());
-        return CaseStudiesTransformer::collection($this->casestudies->allApiData());
+        $publishedPosts = CaseStudies::published()->get();
+        return CaseStudiesTransformer::collection($publishedPosts);
     }
 
     public function casestudiespagination(Request $request)
     {
-       // var_dump($this->casestudies->apiPaginationFilteringFor($request));
-        return CaseStudiesTransformer::collection($this->casestudies->apiPaginationFilteringFor($request));
+        return CaseStudiesTransformer::collection($this->casestudies->serverPaginationFilteringFor($request));
     }
     
     public function find(CaseStudies $casestudies)

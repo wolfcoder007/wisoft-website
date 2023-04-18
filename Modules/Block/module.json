@@ -1,0 +1,16 @@
+{
+    "name": "Block",
+    "alias": "block",
+    "version": "1.0.0",
+	"description": "",
+    "keywords": [],
+    "priority": 1,
+    "providers": [
+        "Modules\\Block\\Providers\\BlockServiceProvider",
+        "Modules\\Block\\Providers\\EventServiceProvider",
+        "Modules\\Block\\Providers\\RouteServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

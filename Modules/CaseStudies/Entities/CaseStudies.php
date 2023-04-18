@@ -3,6 +3,7 @@
 namespace Modules\CaseStudies\Entities;
 
 use Astrotomic\Translatable\Translatable;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
 use Laracasts\Presenter\PresentableTrait;

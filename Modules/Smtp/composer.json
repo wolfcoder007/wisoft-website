@@ -1,0 +1,44 @@
+{
+    "name": "asgardcms/smtp",
+    "description": "",
+    "type": "asgard-module",
+    "license": "MIT",
+    "require": {
+        "php": "^7.0|^8.0",
+        "symfony/mailgun-mailer": "^5.4",
+        "symfony/http-client": "^5.4",
+        "symfony/postmark-mailer": "^5.4",
+        "aws/aws-sdk-php": "^3.263"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~7.0",
+        "orchestra/testbench": "3.8.*"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Modules\\Smtp\\": ".",
+            "Modules\\": "Modules/"
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "authors": [
+        {
+            "name": "Nicolas Widart",
+            "email": "n.widart@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\Smtp\\": ""
+        }
+    }
+}

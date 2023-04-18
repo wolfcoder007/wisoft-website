@@ -32,10 +32,14 @@ class CreatePagesTables extends Migration
             $table->text('body');
             $table->string('meta_title')->nullable();
             $table->string('meta_description')->nullable();
-            $table->string('og_title')->nullable();
-            $table->string('og_description')->nullable();
-            $table->string('og_image')->nullable();
-            $table->string('og_type')->nullable();
+            $table->string('fb_title')->nullable();
+            $table->string('fb_description')->nullable();
+            $table->string('fb_type')->nullable();
+            $table->string('fb_vedio_url')->nullable();
+            $table->string('tw_title')->nullable();
+            $table->string('tw_description')->nullable();
+            $table->string('tw_card')->nullable();
+            $table->string('cononical_url')->nullable();
 
             $table->unique(['page_id', 'locale']);
             $table->foreign('page_id')->references('id')->on('page__pages')->onDelete('cascade');

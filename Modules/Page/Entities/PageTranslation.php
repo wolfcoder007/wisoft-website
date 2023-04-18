@@ -16,10 +16,7 @@ class PageTranslation extends Model
         'body',
         'meta_title',
         'meta_description',
-        'og_title',
-        'og_description',
-        'og_image',
-        'og_type',
+         'fb_title', 'fb_description', 'fb_type','fb_vedio_url','tw_title', 'tw_description', 'tw_card', 'cononical_url'
     ];
 
     protected $casts = [

@@ -68,7 +68,7 @@ interface TestimonialRepository extends BaseRepository
      */
     public function markMultipleAsOfflineInAllLocales(array $testimonialIds);
     
-    public function allApiData();
+   // public function allApiData();
      /**
      * Find the page set as homepage
      * @return object

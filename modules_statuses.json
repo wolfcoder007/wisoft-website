@@ -19,5 +19,11 @@
     "Testimonials": true,
     "GeneralSettings": true,
     "Generalsettings": true,
-    "CaseStudies": true
+    "CaseStudies": true,
+    "Services": true,
+    "Industry": true,
+    "Client": true,
+    "Seo": true,
+    "Contactform": true,
+    "Smtp": true
 }

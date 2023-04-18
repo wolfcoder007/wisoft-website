@@ -52,20 +52,5 @@ class EloquentSliderRepository extends EloquentBaseRepository implements SliderR
         return $this->model->where('system_name', '=', $systemName)->first();
     }
     
-    /*public function allSliderData() {
-        
-        return $this->model->select('slider__sliders.id', 'slide.id as slideId','t.id as localeId', 'slider__sliders.name as slider', 'slider__sliders.created_at','slide.name as slide_name','slide.external_image_url', 'slide.youtube_video_url', 't.title', 't.locale', 't.caption', 't.custom_html',  'media__files.path')
-        ->join('slider__slides as slide', 'slide.slider_id', '=', 'slider__sliders.id')
-        ->leftJoin('slider__slide_translations as t', 't.id', '=', 'slide.id')       
-        ->leftJoin('media__imageables', 'media__imageables.imageable_id', '=', 'slide.id')
-        ->leftJoin('media__files', 'media__imageables.file_id', '=', 'media__files.id' )
-        ->where('t.locale', locale())
-        ->orwhere('t.locale')
-        ->where('media__imageables.imageable_type', 'like' , '%Slider%')
-        ->orWhereNull('media__imageables.imageable_type')
-        ->get();
-
-        
-       // return $data;
-    }*/
+    
 }

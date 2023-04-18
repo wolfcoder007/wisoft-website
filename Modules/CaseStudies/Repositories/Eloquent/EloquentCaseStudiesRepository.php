@@ -20,9 +20,9 @@ use Modules\CaseStudies\Events\CaseStudiesWasUpdated;
 
 class EloquentCaseStudiesRepository extends EloquentBaseRepository implements CaseStudiesRepository
 {
-    public function allApiData(){
+    /*public function allApiData(){
         
-        $data=   CaseStudies::select('casestudies__casestudies.id', 'casestudies__casestudies.created_at', 'casestudies__casestudies_translations.title','casestudies__casestudies_translations.content', 'casestudies__casestudies_translations.author', 'media__files.path')
+        $data=   CaseStudies::select('casestudies__casestudies.id','casestudies__casestudies.status','casestudies__casestudies.category_id', 'casestudies__casestudies.created_at', 'casestudies__casestudies_translations.title','casestudies__casestudies_translations.content', 'casestudies__casestudies_translations.author', 'media__files.path')
         ->join('casestudies__casestudies_translations', 'casestudies__casestudies_translations.case_studies_id', '=', 'casestudies__casestudies.id')
         ->leftJoin('media__imageables', 'media__imageables.imageable_id', '=', 'casestudies__casestudies.id')
         ->leftJoin('media__files', 'media__imageables.file_id', '=', 'media__files.id' )
@@ -33,7 +33,8 @@ class EloquentCaseStudiesRepository extends EloquentBaseRepository implements Ca
         
         return $data;
        
-    }
+    }*/
+    
     public function all()
     {
         return $this->model->with('translations')->orderBy('created_at', 'ASC')->get();
@@ -176,7 +177,7 @@ class EloquentCaseStudiesRepository extends EloquentBaseRepository implements Ca
      */
     public function serverPaginationFilteringFor(Request $request): LengthAwarePaginator
     {
-        $pages = $this->allWithBuilder();
+        $pages = $this->allWithBuilder()->where('status', 2);
 
         if ($request->get('search') !== null) {
             $term = $request->get('search');
@@ -263,7 +264,7 @@ class EloquentCaseStudiesRepository extends EloquentBaseRepository implements Ca
             if (Str::contains($order , '.')) {
                 $fields = explode('.', $order);
 
-                $pages->select('casestudies__casestudies.id', 'casestudies__casestudies.created_at', 'casestudies__casestudies_translations.title','casestudies__casestudies_translations.content', 'casestudies__casestudies_translations.author', 'media__files.path')
+                $pages->select('casestudies__casestudies.id','casestudies__casestudies.status','casestudies__casestudies.category_id', 'casestudies__casestudies.created_at', 'casestudies__casestudies_translations.title','casestudies__casestudies_translations.content', 'casestudies__casestudies_translations.author', 'media__files.path')
        
                         ->join('casestudies__casestudies_translations as t', function ($join) {
                     $join->on('casestudies__casestudies.id', '=', 't.case_studies_id');
@@ -276,7 +277,7 @@ class EloquentCaseStudiesRepository extends EloquentBaseRepository implements Ca
                     ->orWhereNull('media__imageables.imageable_type')
                     ->groupBy('casestudies__casestudies.id')->orderBy("t.{$fields[1]}", $order);
             } else {
-                $pages->select('casestudies__casestudies.id', 'casestudies__casestudies.created_at', 't.title','t.content', 't.author', 'media__files.path')
+                $pages->select('casestudies__casestudies.id','casestudies__casestudies.status','casestudies__casestudies.category_id', 'casestudies__casestudies.created_at', 't.title','t.content', 't.author', 'media__files.path')
        
                         ->join('casestudies__casestudies_translations as t', function ($join) {
                     $join->on('casestudies__casestudies.id', '=', 't.case_studies_id');

@@ -134,4 +134,5 @@ class PostController extends AdminBaseController
         return redirect()->route('admin.blog.post.index')
             ->withSuccess(trans('blog::messages.post deleted'));
     }
+   
 }

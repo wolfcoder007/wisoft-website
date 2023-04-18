@@ -20,9 +20,9 @@ use Modules\Testimonials\Events\TestimonialWasUpdated;
 
 class EloquentTestimonialRepository extends EloquentBaseRepository implements TestimonialRepository
 {
-    public function allApiData(){
+    /*public function allApiData(){
         
-        $data=   Testimonial::select('testimonials__testimonials.id', 'testimonials__testimonials.created_at', 'testimonials__testimonial_translations.title','testimonials__testimonial_translations.content', 'testimonials__testimonial_translations.author', 'media__files.path')
+        $data=   Testimonial::select('testimonials__testimonials.id','testimonials__testimonials.status','testimonials__testimonials.category_id', 'testimonials__testimonials.created_at', 'testimonials__testimonial_translations.title','testimonials__testimonial_translations.content', 'testimonials__testimonial_translations.author', 'media__files.path')
         ->join('testimonials__testimonial_translations', 'testimonials__testimonial_translations.testimonial_id', '=', 'testimonials__testimonials.id')
         ->leftJoin('media__imageables', 'media__imageables.imageable_id', '=', 'testimonials__testimonials.id')
         ->leftJoin('media__files', 'media__imageables.file_id', '=', 'media__files.id' )
@@ -33,7 +33,8 @@ class EloquentTestimonialRepository extends EloquentBaseRepository implements Te
         
         return $data;
        
-    }
+    }*/
+    
     public function all()
     {
         return $this->model->with('translations')->orderBy('created_at', 'ASC')->get();
@@ -176,7 +177,7 @@ class EloquentTestimonialRepository extends EloquentBaseRepository implements Te
      */
     public function serverPaginationFilteringFor(Request $request): LengthAwarePaginator
     {
-        $pages = $this->allWithBuilder();
+        $pages = $this->allWithBuilder()->where('status', 2);
 
         if ($request->get('search') !== null) {
             $term = $request->get('search');
@@ -263,7 +264,7 @@ class EloquentTestimonialRepository extends EloquentBaseRepository implements Te
             if (Str::contains($order , '.')) {
                 $fields = explode('.', $order);
 
-                $pages->select('testimonials__testimonials.id', 'testimonials__testimonials.created_at', 'testimonials__testimonial_translations.title','testimonials__testimonial_translations.content', 'testimonials__testimonial_translations.author', 'media__files.path')
+                $pages->select('testimonials__testimonials.id','testimonials__testimonials.status','testimonials__testimonials.category_id', 'testimonials__testimonials.created_at', 'testimonials__testimonial_translations.title','testimonials__testimonial_translations.content', 'testimonials__testimonial_translations.author', 'media__files.path')
        
                         ->join('testimonials__testimonial_translations as t', function ($join) {
                     $join->on('testimonials__testimonials.id', '=', 't.testimonial_id');
@@ -276,7 +277,7 @@ class EloquentTestimonialRepository extends EloquentBaseRepository implements Te
                     ->orWhereNull('media__imageables.imageable_type')
                     ->groupBy('testimonials__testimonials.id')->orderBy("t.{$fields[1]}", $order);
             } else {
-                $pages->select('testimonials__testimonials.id', 'testimonials__testimonials.created_at', 't.title','t.content', 't.author', 'media__files.path')
+                $pages->select('testimonials__testimonials.id','testimonials__testimonials.status','testimonials__testimonials.category_id', 'testimonials__testimonials.created_at', 't.title','t.content', 't.author', 'media__files.path')
        
                         ->join('testimonials__testimonial_translations as t', function ($join) {
                     $join->on('testimonials__testimonials.id', '=', 't.testimonial_id');

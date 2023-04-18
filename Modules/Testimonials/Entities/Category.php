@@ -2,10 +2,6 @@
 
 namespace Modules\Testimonials\Entities;
 
-/**
- * Class Category
- * @package Modules\Testimonials\Entities
- */
 class Category
 {
     const UNCATEGORIZED = 0;
@@ -22,11 +18,11 @@ class Category
     public function __construct()
     {
         $this->categories = [
-            self::UNCATEGORIZED => trans('testimonials::category.uncategorized'),
-            self::SOCIAL => trans('testimonials::category.social'),
-            self::DIGITAL => trans('testimonials::category.digital'),
-            self::SEO => trans('testimonials::category.seo'),
-            self::ECOMMERCE => trans('testimonials::category.ecommarce'),
+            self::UNCATEGORIZED => trans('block::category.uncategorized'),
+            self::SOCIAL => trans('block::category.social'),
+            self::DIGITAL => trans('block::category.digital'),
+            self::SEO => trans('block::category.seo'),
+            self::ECOMMERCE => trans('block::category.ecommarce'),
         ];
     }
 
@@ -46,10 +42,10 @@ class Category
      */
     public function get($categoryId)
     {
-        if (isset($this->$categories[$categoryId])) {
-            return $this->$categories[$categoryId];
+        if (isset($this->categories[$categoryId])) {
+            return $this->categories[$categoryId];
         }
 
-        return $this->$categories[self::DRAFT];
+        return $this->categories[self::UNCATEGORIZED];
     }
 }

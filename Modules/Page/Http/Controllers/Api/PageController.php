@@ -25,9 +25,15 @@ class PageController extends Controller
 
     public function index()
     {
-        return PageTransformer::collection($this->page->all());
+        $publishedPosts = Page::published()->get();
+        return PageTransformer::collection($publishedPosts);
     }
-
+    
+    public function getSingleData(Page $page)
+    {
+        return new PageTransformer($page);
+    }
+    
     public function indexServerSide(Request $request)
     {
         return PageTransformer::collection($this->page->serverPaginationFilteringFor($request));

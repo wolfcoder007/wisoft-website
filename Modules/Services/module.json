@@ -1,0 +1,16 @@
+{
+    "name": "Services",
+    "alias": "services",
+    "version": "1.0.0",
+	"description": "",
+    "keywords": [],
+    "priority": 1,
+    "providers": [
+        "Modules\\Services\\Providers\\ServicesServiceProvider",
+        "Modules\\Services\\Providers\\EventServiceProvider",
+        "Modules\\Services\\Providers\\RouteServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

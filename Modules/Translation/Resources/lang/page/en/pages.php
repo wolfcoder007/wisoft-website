@@ -16,6 +16,24 @@ return [
     'og_title' => 'Facebook title',
     'og_description' => 'Facebook description',
     'og_type' => 'Facebook type',
+    'og_image' => 'Facebook image',
+    
+    'fb_title' => 'Facebook title',
+    'fb_description' => 'Facebook description',
+    'fb_type' => 'Facebook type',
+    'fb_image' => 'Facebook image',
+    'fb_vedio_url' => 'Vedio url',
+    
+    
+    'twitter_data' => 'Twitter data',
+    'tw_title' => 'Twitter title',
+    'tw_description' => 'Twitter description',
+    'tw_card' => 'Twitter card',
+    'tw_image' => 'Twitter image', 
+
+    'advance' => 'Advance',
+    'cononical_url' => 'Cononical URL',
+
     'template' => 'Page template name',
     'is homepage' => 'Homepage ?',
     'body' => 'Body',

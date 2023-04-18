@@ -69,9 +69,5 @@ interface CaseStudiesRepository extends BaseRepository
      */
     public function markMultipleAsOfflineInAllLocales(array $casestudiesIds);
     
-    public function allApiData();
-     /**
-     * Find the page set as homepage
-     * @return object
-     */
+    
 }

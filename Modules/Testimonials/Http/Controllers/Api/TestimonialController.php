@@ -28,14 +28,15 @@ class TestimonialController extends Controller
 
     public function index()
     {
-        //var_dump($this->testimonial->check_data());
-        return TestimonialTransformer::collection($this->testimonial->allApiData());
+        
+        $publishedPosts = Testimonial::published()->get();
+        return TestimonialTransformer::collection($publishedPosts);
     }
 
     public function testimonialspagination(Request $request)
     {
        // var_dump($this->testimonial->apiPaginationFilteringFor($request));
-        return TestimonialTransformer::collection($this->testimonial->apiPaginationFilteringFor($request));
+        return TestimonialTransformer::collection($this->testimonial->serverPaginationFilteringFor($request));
     }
     
     public function find(Testimonial $testimonial)

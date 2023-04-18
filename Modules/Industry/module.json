@@ -1,0 +1,16 @@
+{
+    "name": "Industry",
+    "alias": "industry",
+    "version": "1.0.0",
+	"description": "",
+    "keywords": [],
+    "priority": 1,
+    "providers": [
+        "Modules\\Industry\\Providers\\IndustryServiceProvider",
+        "Modules\\Industry\\Providers\\EventServiceProvider",
+        "Modules\\Industry\\Providers\\RouteServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

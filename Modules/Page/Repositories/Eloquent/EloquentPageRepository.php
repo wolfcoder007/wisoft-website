@@ -142,7 +142,7 @@ class EloquentPageRepository extends EloquentBaseRepository implements PageRepos
     public function serverPaginationFilteringFor(Request $request): LengthAwarePaginator
     {
         $pages = $this->allWithBuilder();
-
+        //$pages->where('status', 1);
         if ($request->get('search') !== null) {
             $term = $request->get('search');
             $pages->whereHas('translations', function ($query) use ($term) {
@@ -157,14 +157,17 @@ class EloquentPageRepository extends EloquentBaseRepository implements PageRepos
 
             if (Str::contains($request->get('order_by'), '.')) {
                 $fields = explode('.', $request->get('order_by'));
-
                 $pages->with('translations')->join('page__page_translations as t', function ($join) {
                     $join->on('page__pages.id', '=', 't.page_id');
                 })
                     ->where('t.locale', locale())
+                    ->where('t.status', 1)
                     ->groupBy('page__pages.id')->orderBy("t.{$fields[1]}", $order);
             } else {
-                $pages->orderBy($request->get('order_by'), $order);
+                
+                $pages->where('page__page_translations.status', 1)
+                      ->orderBy($request->get('order_by'), $order);
+                
             }
         }
 

@@ -3,6 +3,7 @@
 namespace Modules\Page\Entities;
 
 use Astrotomic\Translatable\Translatable;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Modules\Core\Traits\NamespacedEntity;
 use Modules\Media\Support\Traits\MediaRelation;
@@ -22,10 +23,7 @@ class Page extends Model implements TaggableInterface
         'body',
         'meta_title',
         'meta_description',
-        'og_title',
-        'og_description',
-        'og_image',
-        'og_type',
+         'fb_title', 'fb_description', 'fb_type','fb_vedio_url','tw_title', 'tw_description', 'tw_card', 'cononical_url'
     ];
     protected $fillable = [
         'is_home',
@@ -38,15 +36,13 @@ class Page extends Model implements TaggableInterface
         'body',
         'meta_title',
         'meta_description',
-        'og_title',
-        'og_description',
-        'og_image',
-        'og_type',
+        'fb_title', 'fb_description', 'fb_type','fb_vedio_url','tw_title', 'tw_description', 'tw_card', 'cononical_url'
     ];
     protected $casts = [
         'is_home' => 'boolean',
     ];
     protected static $entityNamespace = 'asgardcms/page';
+
 
     public function getCanonicalUrl() : string
     {
@@ -88,4 +84,22 @@ class Page extends Model implements TaggableInterface
 
         return $thumbnail;
     }
+    
+    /**
+     * Check if the post is published
+     * @param Builder $query
+     * @return Builder
+     */
+    public function scopePublished(Builder $query)
+    {
+       // return $query->with('translations')->whereStatus('status', 1);
+        return $query->join('page__page_translations as t', function ($join) {
+                    $join->on('page__pages.id', '=', 't.page_id');
+                })
+                ->where('t.locale', locale())
+                    ->where('t.status', 1);
+        
+        
+    }
+
 }

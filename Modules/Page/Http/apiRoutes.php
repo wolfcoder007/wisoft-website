@@ -8,12 +8,17 @@ use Modules\Page\Http\Controllers\Admin\CategoryController;
 /** @var Router $router */
 //$router->group(['prefix' => '/page', 'middleware' => ['api.token', 'auth.admin']], function (Router $router) {
 $router->group(['prefix' => '/page'], function (Router $router) {
-    $router->get('pages', [
+    $router->get('allpages', [
         'as' => 'api.page.page.index',
         'uses' => 'PageController@index',
         //'middleware' => 'token-can:page.pages.index',
     ]);
-    $router->get('pages-server-side', [
+    $router->get('page/{page}', [
+        'as' => 'api.page.page.getSingleData',
+        'uses' => 'PageController@getSingleData',
+        //'middleware' => 'token-can:service.services.index',
+    ]);
+    $router->get('pages', [
         'as' => 'api.page.page.indexServerSide',
         'uses' => 'PageController@indexServerSide',
         //'middleware' => 'token-can:page.pages.index',
@@ -36,12 +41,12 @@ $router->group(['prefix' => '/page'], function (Router $router) {
     $router->post('pages/{page}', [
         'as' => 'api.page.page.find',
         'uses' => 'PageController@find',
-        'middleware' => 'token-can:page.pages.edit',
+        //'middleware' => 'token-can:page.pages.edit',
     ]);
     $router->post('pages/{page}/edit', [
         'as' => 'api.page.page.update',
         'uses' => 'PageController@update',
-        'middleware' => 'token-can:page.pages.edit',
+        //'middleware' => 'token-can:page.pages.edit',
     ]);
     $router->get('templates', 'PageTemplatesController')->name('api.page.page-templates.index');
 });
